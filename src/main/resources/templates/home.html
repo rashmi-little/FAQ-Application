@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ application</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h2>FAQ's</h2>
+        <p>Just the fact</p>
+      </header>
+
+      <section>
+        <div data-th-each="faq, obj: ${faqs}" class="faq" data-th-object="${faq}">
+          <div class="question">
+            <h4 data-th-text="|${obj.count}. *{question}|" class="title"></h4>
+            <p class="symbol" data-th-text="${obj.count == 1 ? '-':'+'}">+</p>
+          </div>
+
+          <p data-th-class="|answer ${obj.count == 1 ? '' : 'hidden'}|" data-th-text=" *{answer}"></p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
